@@ -70,7 +70,50 @@
             color: white;
         }
     </style>
+    @*css danh mục hãng sx*@
+    <style>
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
 
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #f1f1f1
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
 
 
 </head>
@@ -132,29 +175,35 @@
 
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#" title="dienthoai">
+                        <a href="@Url.Action("Index", "Home")" title="dienthoai">
                             @*<span><i class=" glyphicon-music "></i></span>*@
                             <span>ĐIỆN THOẠI</span>
 
                         </a>
                         @*<span><i class=" glyphicon-music "></i> </span>
-                            <br />
-                            <span>@Html.ActionLink("Trang chủ", "Index", "Home") </span>*@
+            <br />
+            <span>@Html.ActionLink("Trang chủ", "Index", "Home") </span>*@
+                    </li>
+
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">HÃNG SẢN XUẤT</button>
+                            <div class="dropdown-content">
+                                <a href="@Url.Action("SamSungPartial", "SanPham")">Samsung</a>
+                                <a href="@Url.Action("ApplePartial", "SanPham")">Apple</a>
+                                <a href="@Url.Action("XiaomiPartial", "SanPham")">Xiaomi</a>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        <a href="#" title="LAPTOP">
-                            @*<span><i class="fas fa-tablet"></i></span>*@
-                            <span>LAPTOP</span>
-
-                        </a>
-
-                    </li>
-                    <li>
-                        <a href="#" title="PHUKIEN">
-                            @*<span><i class="fas fa-desktop"></i></span>*@
-                            <span>PHỤ KIỆN</span>
-
-                        </a>
+                        <div class="dropdown">
+                            <button class="dropbtn">HỆ ĐIỀU HÀNH</button>
+                            <div class="dropdown-content">
+                                <a href="@Url.Action("AndroidPartial", "SanPham")">Android</a>
+                                <a href="@Url.Action("IOSPartial", "SanPham")">IOS</a>
+                                <a href="#">VOS</a>
+                            </div>
+                        </div>
                     </li>
                     <li>
                         <a href="/Home/Contact" title="LIENHE">
